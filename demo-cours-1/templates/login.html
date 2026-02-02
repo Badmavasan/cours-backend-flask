@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Connexion</title>
+    <style>
+        body { font-family: sans-serif; max-width: 400px; margin: 80px auto; }
+        form { display: flex; flex-direction: column; gap: 10px; }
+        input { padding: 8px; font-size: 1rem; }
+        button { padding: 10px; font-size: 1rem; cursor: pointer; }
+        .flash { background: #ffeeba; padding: 10px; border-radius: 4px; margin-bottom: 15px; }
+    </style>
+</head>
+<body>
+    <h1>Connexion</h1>
+
+    {% with messages = get_flashed_messages() %}
+        {% for msg in messages %}
+            <div class="flash">{{ msg }}</div>
+        {% endfor %}
+    {% endwith %}
+
+    <form method="POST">
+        <label for="username">Nom d'utilisateur</label>
+        <input type="text" id="username" name="username" required>
+
+        <label for="password">Mot de passe</label>
+        <input type="password" id="password" name="password" required>
+
+        <button type="submit">Se connecter</button>
+    </form>
+</body>
+</html>
