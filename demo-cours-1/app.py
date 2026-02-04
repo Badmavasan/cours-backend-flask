@@ -52,7 +52,7 @@ def dashboard():
     return render_template('dashboard.html', username=session['username'])
 
 
-@app.route('/logout')
+@app.post('/logout')
 @login_required
 def logout():
     session.clear()
